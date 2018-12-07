@@ -71,7 +71,9 @@ cv2.drawContours(mini,[stick_contour],-1,(0,0,255),3)
 # approximate a polygon around the stick contour
 rect = cv2.minAreaRect(stick_contour)
 vec = center - np.array(rect[0])
+
 angle = np.arctan2(vec[1], vec[0]) * 180 / np.pi
+
 print(rect[2] % 90, angle % 90)
 box = cv2.boxPoints(rect)
 box = np.int0(box)
